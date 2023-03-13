@@ -1,8 +1,5 @@
 # Java基础
 
-[images]:https://github.com/HolyPaPa99/Java/images
-[java-string]:https://github.com/HolyPaPa99/Java/images/java-string.png
-
 ## 一、简介
 Java是由Sun Microsystem公司于1995年5月推出的Java面向对象程序设计语言和Java平台的总称。由James Gosling和同事们共同研发，并在1995年正式推出。
 
@@ -238,7 +235,7 @@ String创建之后是不可修改的，这点是是基于代码封装和访问�
 
 和 String 类不同的是，StringBuffer 和 StringBuilder 类的对象能够被多次的修改，并且不产生新的未使用对象。在使用 StringBuffer 类时，每次都会对 StringBuffer 对象本身进行操作，而不是生成新的对象，所以如果需要对字符串进行修改推荐使用 StringBuffer。StringBuilder 类在 Java 5 中被提出，它和 StringBuffer 之间的最大不同在于 StringBuilder 的方法不是线程安全的（不能同步访问）。由于 StringBuilder 相较于 StringBuffer 有速度优势，所以多数情况下建议使用 StringBuilder 类。而在应用程序要求线程安全的情况下，则必须使用 StringBuffer 类。
 
-​	![](images/java-string1.png)
+​	![字符串工具][java-string1]
 
 
 
@@ -391,7 +388,7 @@ public class Employee{//类声明
 
 ***Java只支持类之间的单继承，但支持多重继承。子类继承父类，同时拥有父类对子类公开的属性和方法。***
 
-![](images/java-extends.png)
+![][java-extends]
 
 在Java中通过***extends***关键字来声明继承关系的，例如：
 
@@ -657,7 +654,7 @@ public class Overloading {
 
 多态是同一个行为具有多个不同表现形式或形态的能力。当使用多态方式调用方法时，首先检查父类中是否有该方法，如果没有，则编译错误；如果有，再去调用子类的同名方法。
 
-![](images/java-duotai.jpeg)
+![多态][java-duotai]
 
 **多态的优点**
 
@@ -845,7 +842,7 @@ public class Dog extends Animal{
 - **Error**： 是程序中无法处理的错误，表示运行应用程序中出现了严重的错误。此类错误一般表示代码运行时JVM出现问题。通常有VirtualMachineError（虚拟机运行错误）、NoClassDefFoundError（类定义错误）等。比如说当jvm耗完可用内存时，将出现OutOfMemoryError。此类错误发生时，JVM将终止线程。非代码性错误。因此，当此类错误发生时，应用不应该去处理此类错误。
 - **Exception**： 是程序本身可以捕获并且可以处理的异常。其中可分为运行时异常（RuntimeException）和非运行时异常，也叫做受检异常。RuntimeException类极其子类表示JVM在运行期间可能出现的错误。编译器不会检查此类异常，并且不要求处理异常，比如用空值对象的引用（NullPointerException）、数组下标越界（ArrayIndexOutBoundException）。此类异常属于不可查异常，一般是由程序逻辑错误引起的，在程序中可以选择捕获处理，也可以不处理。 Exception中除RuntimeException极其子类之外的异常。编译器会检查此类异常，如果程序中出现此类异常，比如说IOException，必须对该异常进行处理，要么使用try-catch捕获，要么使用throws语句抛出，否则编译不通过。
 
-![](images/java-exception.jpg)
+![异常][java-exception]
 
 ### 2.异常捕获处理try-catch-finally
 
@@ -1383,7 +1380,7 @@ Java.io 包几乎包含了所有操作输入、输出需要的类。所有这些
 
 流可以理解为一个数据的序列，流是一组有顺序的，有起点和终点的字节集合，是对数据传输的总称或抽象。IO流的本质是数据传输，并且流是单向的。IO流主要分为两大类，字节流和字符流。字节流可以处理任何类型的数据，如图片，视频等，字符流只能处理字符类型的数据。IO流继承关系如下：
 
-![](images/java-iostream.png)
+![IO][java-iostream]
 
 
 
@@ -1666,7 +1663,7 @@ Java 集合框架主要包括两种类型的容器，一种是集合（Collectio
 
 从下图可以看出Collection分为List、Set和Queue三种类型。Queue主要是用于线程池阻塞队列，这里主要讨论List和Set。
 
-![](images/java-collection.jpg)
+![][java-collection]
 
 #### List和Set的区别
 
@@ -1716,7 +1713,7 @@ HashSet 基于 HashMap 来实现的。该类实现了Set接口，不允许出现
 
 Map 接口存储一组键值对象，提供key（键）到value（值）的映射。其中常用的Map实现有：HashMap、LinkedHashMap、TreeMap、HashTable和Properties。
 
-![](images/java-map.jpg)
+![Map继续关系][java-map]
 
 #### HashMap
 
@@ -1742,7 +1739,7 @@ Properties 继承于 Hashtable，表示一个持久的属性集，属性列表�
 
 Java迭代器（Iterator）是 Java 集合框架中的一种机制，它提供了一种在不暴露集合内部实现的情况下遍历集合元素的方法。Java Iterator（迭代器）不是一个集合，它是一种用于访问集合的方法，可用于迭代 ArrayList和 HashSet 等集合。Iterator 是 Java 迭代器最简单的实现，ListIterator 是 Collection API 中的接口， 它扩展了 Iterator 接口。
 
-![](images/java-collection-iterator.jpeg)
+![集合迭代器][java-collection-iterator]
 
 ```java
 import java.util.ArrayList;
@@ -2127,4 +2124,22 @@ public class Java8Tester {
 | 13   | **T orElseGet(Supplier<? extends T> other)**如果存在该值，返回值， 否则触发 other，并返回 other 调用的结果。 |
 | 14   | **<X extends Throwable> T orElseThrow(Supplier<? extends X> exceptionSupplier)**如果存在该值，返回包含的值，否则抛出由 Supplier 继承的异常 |
 | 15   | **String toString()**返回一个Optional的非空字符串，用来调试  |
+
+
+
+
+
+[java-string]:https://raw.githubusercontent.com/HolyPaPa99/Java/main/images/java-string.png
+[java-string1]:https://raw.githubusercontent.com/HolyPaPa99/Java/main/images/java-string1.png
+[java-extends]:https://raw.githubusercontent.com/HolyPaPa99/Java/main/images/java-extends.png
+[java-duotai]:https://raw.githubusercontent.com/HolyPaPa99/Java/main/images/java-duotai.jpeg
+[java-exception]:https://raw.githubusercontent.com/HolyPaPa99/Java/main/images/Java-Exception.jpg
+[java-iostream]:https://raw.githubusercontent.com/HolyPaPa99/Java/main/images/java-iostream.png
+[java-collection]:https://raw.githubusercontent.com/HolyPaPa99/Java/main/images/java-collection.jpg
+[java-map]:https://raw.githubusercontent.com/HolyPaPa99/Java/main/images/java-map.jpg
+[java-collection-iterator]:https://raw.githubusercontent.com/HolyPaPa99/Java/main/images/java-collection-iterator.jpeg
+
+
+
+
 
