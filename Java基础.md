@@ -1,6 +1,7 @@
 # Java基础
 
 [images]:https://github.com/HolyPaPa99/Java/images
+[java-string]:https://github.com/HolyPaPa99/Java/images/java-string.png
 
 ## 一、简介
 Java是由Sun Microsystem公司于1995年5月推出的Java面向对象程序设计语言和Java平台的总称。由James Gosling和同事们共同研发，并在1995年正式推出。
@@ -191,7 +192,7 @@ String s4 = new String("Runoob");   // String 对象创建
 String s5 = new String("Runoob");   // String 对象创建
 ```
 
-![]([images]/java-string.png)
+![字符串内存模型][java-string]
 
 String创建之后是不可修改的，这点是是基于代码封装和访问控制实现的。从String源码可以看见，String类用final关键字修饰，意味着String类不能被继承；它的成员方法都默认为final方法；String实例的值是通过字符数组实现字符串存储的，内部成员char数组final修饰的，字符串一旦创建就不能再修改；虽然char数组本身的值可以改变（即修改的是数组上每一个元素本身的值，而并未修改数组，不违反final关键字定义），但是String内部并未提供这一方法。因此String不可变是基于代码封装和访问控制实现的。当对字符串进行修改的时候，需要使用 StringBuffer 和 StringBuilder 类。
 
